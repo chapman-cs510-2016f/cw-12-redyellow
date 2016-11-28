@@ -1,5 +1,5 @@
 language: cpp
-compiler: g++-4.7 -std=c++0x
+compiler: gcc
 script: make test
 notifications:
   email: false
