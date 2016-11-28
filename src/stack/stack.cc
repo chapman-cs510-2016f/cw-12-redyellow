@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 #include <stdexcept>
 #include "stack.h"
 
@@ -119,6 +120,7 @@ bool Stack::empty() const
 
 
 // TODO: Implementation of print method
+/*
 void Stack::print()
 {
 	std::unique_ptr<Node> tmp_node_ptr(std::move(this->head));
@@ -131,12 +133,27 @@ void Stack::print()
 	}
 	this->head = std::move(tmp_node_ptr); 
 }
+*/
 
+void Stack::print() const
+{
+	Node *tmp_node_ptr;
+
+	tmp_node_ptr = this->head.get();
+	
+	unsigned int i;	
+	for (i=0;i<this->size();i++)
+	{
+		cout << tmp_node_ptr->data << endl;  
+		tmp_node_ptr = std::move(tmp_node_ptr->next.get());
+	}
+
+}
 
 //Check the size of this stack is full
 bool Stack::full()
 {
-	if (this->size() >= sizeof(SValue))
+	if (this->size() >= std::numeric_limits<std::size_t>::max())
 		return true;
 	else
 		return false;

@@ -124,7 +124,7 @@ public:
     bool empty() const;
 
     // Print method
-    void print() ;
+    void print() const;
 	
 	//Full check
 	bool full();
