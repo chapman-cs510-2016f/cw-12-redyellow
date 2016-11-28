@@ -4,6 +4,8 @@
 #include <stdexcept>
 #include <memory>
 
+using namespace std;
+
 // Define types as abstraction layer to protect against implementation changes
 typedef int SValue;
 
