@@ -1,8 +1,15 @@
 #include <iostream>
+#include <stdexcept>
 #include "stack.h"
 
+
+using namespace std;
+
 // TODO: Implementation of print for SValue
-// void print(SValue) {}
+void print(SValue val)
+{
+	cout << val << endl;
+}
 
 // Implementation of default constructor
 Stack::Stack()
@@ -30,6 +37,12 @@ std::size_t Stack::size() const
 // Implementation of push method
 void Stack::push(SValue val)
 {
+	// Use the full method to check whether Stack is full
+    if (this->full())
+    {
+        throw "This stack is full now, can't push any more.";
+    }
+	
     // Create a unique_ptr named "new_node_ptr" to manage memory
     // First create a pointer to a zero-allocated Node struct using
     // the "new" keyword. See following equivalence: 
@@ -65,23 +78,26 @@ void Stack::push(SValue val)
     // automatically deallocated, since it is a unique_ptr
     // Again, we must move the new pointer uniquely to become the new head
     this->head = std::move(new_node_ptr);
+	this->depth += 1;
 }
 
 
 // Implementation of pop method
-SValue Stack::pop() 
+SValue Stack::pop()
 {
     // Use the empty method to check whether Stack is empty
     if (this->empty())
     {
         // TODO: Fix this by throwing an exception properly
         // https://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
-        return -1;
+		throw "This stack is empty now, can't pop any more.";
+        //return -1;
     }
 
     SValue val = this->head->data;
     // We move the unique pointer of the old next to become the new head
     this->head = std::move(this->head->next);
+	this->depth -= 1;
     // Again, we allow the unique_ptr to the old head to be deallocated
     // automatically as it goes out of scope 
     return val;
@@ -89,8 +105,39 @@ SValue Stack::pop()
 
 
 // TODO: Implementation of empty method
-// bool Stack::empty() const {}
+bool Stack::empty() const
+{
+	if (this->head == nullptr)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 
 
 // TODO: Implementation of print method
-// void Stack::print() {}
+void Stack::print()
+{
+	std::unique_ptr<Node> tmp_node_ptr(std::move(this->head));
+	//tmp_node_ptr = std::move(this->head);
+	unsigned int i;	
+	for (i=0;i<this->size();i++)
+	{
+		cout << tmp_node_ptr->data << endl;  
+		tmp_node_ptr = std::move(tmp_node_ptr->next);
+	}
+	this->head = std::move(tmp_node_ptr); 
+}
+
+
+//Check the size of this stack is full
+bool Stack::full()
+{
+	if (this->size() >= sizeof(SValue))
+		return true;
+	else
+		return false;
+}

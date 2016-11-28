@@ -1,6 +1,7 @@
 #ifndef CW12_STACK_H_
 #define CW12_STACK_H_
 
+#include <stdexcept>
 #include <memory>
 
 // Define types as abstraction layer to protect against implementation changes
@@ -121,7 +122,10 @@ public:
     bool empty() const;
 
     // Print method
-    void print() const;
+    void print() ;
+	
+	//Full check
+	bool full();
 };
 
 #endif // CW12_STACK_H_
