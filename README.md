@@ -1,5 +1,4 @@
-# CS510 CW 12
-
+# CS510 CW 12 
 **Author(s):** _Nengyin Zhu, Kaiqin Huang_
 
 [![Build Status](https://travis-ci.org/chapman-cs510-2016f/cw-12-redyellow.svg?branch=master)](https://travis-ci.org/chapman-cs510-2016f/cw-12-redyellow)
@@ -51,7 +50,7 @@ Complete the following exercises, saving your solutions in the indicated files.
 
 Analyze in this section what you found useful about this assignment in your own words. Include any lingering questions or comments that you may have.
 
-**CHANGEME**
+**This part is difficult, espectially for the concept of unique_ptr, and rule of zero. rule of three. **
 
 ## Honor Pledge
 
