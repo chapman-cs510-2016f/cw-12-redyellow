@@ -125,7 +125,7 @@ public:
 
     // Print method
     void print() const;
-	
+
 	//Full check
 	bool full();
 };
