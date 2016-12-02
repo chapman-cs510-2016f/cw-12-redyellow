@@ -26,6 +26,18 @@ int main(void)
     cout << "Original 2 vector after modification:" << endl;
     print_vec(w);
 
+    cout << "-----Operator+ Vec3 test-----" << endl;
+    cout << "Original 3 vector:" << endl;
+    print_vec(vprime);
+    cout << "The sum of two vprimes is:" << endl;
+    print_vec(vprime + vprime);
+
+    cout << "-----Operator+ Vec2 test-----" << endl;
+    cout << "Original 2 vector:" << endl;
+    print_vec(w);
+    cout << "The sum of two vprimes is:" << endl;
+    print_vec(w + w);
+
     return 0;
 }
 
@@ -57,3 +69,19 @@ void print_vec(const Vec2 &wr)
 }
 
 //TODO : Implement overloaded + operators
+Vec3 operator+(const Vec3& a, const Vec3& b)
+{
+    Vec3 sum3;
+    sum3.x = a.x + b.x;
+    sum3.y = a.y + b.y;
+    sum3.z = a.z + b.z;
+    return sum3;
+}
+
+Vec2 operator+(const Vec2& c, const Vec2& d)
+{
+    Vec2 sum2;
+    sum2.x = c.x + d.x;
+    sum2.y = c.y + d.y;
+    return sum2;
+}
