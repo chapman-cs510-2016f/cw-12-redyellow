@@ -27,7 +27,9 @@ namespace foo
 namespace bar
 {
     // This is bar::print, which is distinct from foo::print above
-    void print() { std::cout << "This is printing from bar." << std::endl; }
+    void print() {
+        std::cout << "This is printing from bar." << std::endl;
+    }
 }
 
 // Exactly like C, a C++ program must have a main function with arguments:
