@@ -6,11 +6,13 @@
 
 using namespace std;
 
+
 // TODO: Implementation of print for SValue
 void print(SValue val)
 {
 	cout << val << endl;
 }
+
 
 // Implementation of default constructor
 Stack::Stack()
@@ -43,7 +45,7 @@ void Stack::push(SValue val)
     {
         throw "This stack is full now, can't push any more.";
     }
-	
+
     // Create a unique_ptr named "new_node_ptr" to manage memory
     // First create a pointer to a zero-allocated Node struct using
     // the "new" keyword. See following equivalence: 
@@ -140,14 +142,14 @@ void Stack::print() const
 	Node *tmp_node_ptr;
 
 	tmp_node_ptr = this->head.get();
-	
-	unsigned int i;	
+
+	unsigned int i;
+
 	for (i=0;i<this->size();i++)
 	{
-		cout << tmp_node_ptr->data << endl;  
+		cout << tmp_node_ptr->data << endl;
 		tmp_node_ptr = std::move(tmp_node_ptr->next.get());
 	}
-
 }
 
 //Check the size of this stack is full
