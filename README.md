@@ -48,9 +48,19 @@ Complete the following exercises, saving your solutions in the indicated files.
 
 ## Assessment
 
-Analyze in this section what you found useful about this assignment in your own words. Include any lingering questions or comments that you may have.
+This part is difficult, especially for the concept of unique_ptr, and rule of zero. rule of three.
 
-**This part is difficult, espectially for the concept of unique_ptr, and rule of zero. rule of three. **
+This first C++ classwork teaches me so many new definitions.  I have found that it is a good way to pick up C++ by comparing it with C.  Some extremely helpful concepts I have learned from this classwork include:
+
+1. Namespace and the use of "::";
+2. Overloading (function overloading and operator overloading);
+3. Class, and how it differs from structure in C (private and public);
+4. What #define guard is and how it works in the header file;
+5. The use of smart pointers (unique_ptr and shared_ptr);
+6. Memory leak (which is the reason why people prefer to use smart pointers);
+7. "Rule of Zero" and "Rule of Three";
+8. Valgrind (to verify that there has no memory leak).
+
 
 ## Honor Pledge
 
